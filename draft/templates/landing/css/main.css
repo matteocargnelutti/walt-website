@@ -1,0 +1,69 @@
+@keyframes bounce-3px {
+  0% {
+    transform: translate(0px, 0px); }
+  50% {
+    transform: translate(0px, 3px); }
+  100% {
+    transform: translate(0px, 0px); } }
+@keyframes bounce-5px {
+  0% {
+    transform: translate(0px, 0px); }
+  50% {
+    transform: translate(0px, 5px); }
+  100% {
+    transform: translate(0px, 0px); } }
+* {
+  margin: 0px;
+  padding: 0px;
+  outline: 0px;
+  box-sizing: border-box; }
+
+body {
+  background-color: #f3f3f3;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif; }
+
+.ban {
+  width: 100%;
+  margin: auto; }
+  .ban .ban-content {
+    width: 640px;
+    margin: auto; }
+
+header.ban {
+  width: 9999px;
+  height: 98vh;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #654ff0;
+  background: linear-gradient(to bottom left, #654ff0, #4733bd);
+  border-bottom-left-radius: 20%;
+  border-bottom-right-radius: 20%; }
+  header.ban figure img {
+    width: 400px;
+    max-width: 70%;
+    display: block;
+    margin: auto;
+    position: relative; }
+  header.ban figure img.glasses {
+    animation: bounce-5px 1s ease infinite; }
+  header.ban figure img.hat {
+    animation: bounce-3px 1s ease infinite; }
+  header.ban h1 {
+    color: white; }
+    header.ban h1 strong {
+      font-weight: 700;
+      font-size: 3em;
+      letter-spacing: -0.05em;
+      display: block;
+      text-align: center;
+      text-shadow: 4px 4px 0px #4733bd; }
+    header.ban h1 span {
+      font-size: 0.85em;
+      letter-spacing: -0.05em;
+      display: block;
+      text-align: center;
+      font-weight: 400;
+      text-shadow: 2px 1px 0px #4733bd; }
+
+/*# sourceMappingURL=main.css.map */
