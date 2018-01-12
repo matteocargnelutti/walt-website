@@ -4,8 +4,9 @@
 $main-color: #654ff0;
 $main-color-sub: #4733bd;
 $alt-color: #f1c232;
-$alt-color-sub: #c89e1d;
+$alt-color-sub: #f9c21a;
 $background-color: #f3f3f3;
+$text-color: #1f1f1f;
 
 //-----------------------------------------------------------------------------
 // Generic animations
@@ -34,7 +35,6 @@ $background-color: #f3f3f3;
 
 body {
     background-color: $background-color;
-    font-size: 18px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -45,8 +45,27 @@ body {
     width: 100%;
     margin: auto;
 
+    h2 {
+        text-align: center;
+        font-size: 62px;
+        letter-spacing: -2px;
+        padding: 20px;
+        color: $text-color;
+    }
+
+    p, ul {
+        font-size: 26px;
+        margin-bottom: 1em;
+        color: $text-color;
+        letter-spacing: -1px;
+
+        strong {
+            font-weight: 700;
+        }
+    }
+
     .ban-content {
-        width: 640px;
+        width: 680px;
         margin: auto;
     }
 }
@@ -56,13 +75,13 @@ body {
 //-----------------------------------------------------------------------------
 header.ban {
     width: 9999px;
-    height: 98vh;
+    height: 100vh;
     display: table-cell;
     vertical-align: middle;
     background-color: $main-color;
     background: linear-gradient(to bottom left, $main-color, $main-color-sub);
-    border-bottom-left-radius: 20%;
-    border-bottom-right-radius: 20%;
+    animation: intro-init 1s ease forwards;
+    animation-delay: 1s;
 
     figure {
         img {
@@ -84,19 +103,49 @@ header.ban {
         color: white;
         strong {
             font-weight: 700;
-            font-size: 3em;
-            letter-spacing: -0.05em;
+            font-size: 108px;
+            letter-spacing: -4px;
             display: block;
             text-align: center;
             text-shadow: 4px 4px 0px $main-color-sub;
         }
         span {
-            font-size: 0.85em;
-            letter-spacing: -0.05em;
+            font-size: 34px;
+            letter-spacing: -2px;
             display: block;
             text-align: center;
             font-weight: 400;
             text-shadow: 2px 1px 0px $main-color-sub;
         }
     }
+}
+
+@keyframes intro-init {
+    0% { 
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+        height: 100vh;
+    };
+    100% {
+        border-bottom-left-radius: 20%;
+        border-bottom-right-radius: 20%;
+        height: 88vh;
+    };
+}
+
+//-----------------------------------------------------------------------------
+// "What's walt ?"
+//-----------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// "Let's get started"
+//-----------------------------------------------------------------------------
+.ban#started {
+    width: 9999px;
+    display: table-cell;
+    vertical-align: middle;
+    background-color: $alt-color;
+    background: linear-gradient(to top right, $alt-color, $alt-color-sub);  
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
 }
