@@ -186,14 +186,10 @@ header.ban {
 /* Header animation : change in height + animated border radius (curtain effect) */
 @keyframes intro-init {
     0% { 
-        border-bottom-left-radius: 0%;
-        border-bottom-right-radius: 0%;
         height: 100vh;
     };
     100% {
-        border-bottom-left-radius: 20%;
-        border-bottom-right-radius: 20%;
-        height: 88vh;
+        height: 87vh;
     };
 }
 
@@ -201,6 +197,8 @@ header.ban {
 // "What's walt ?"
 //-----------------------------------------------------------------------------
 .ban#what {
+    padding-top: 10px;
+
     #what-animation {
         position: relative;
         overflow: hidden;
@@ -268,14 +266,6 @@ header.ban {
     background-color: $color-alt;
     background: linear-gradient(to top right, $color-alt, $color-alt-sub);
     color: $color-text-opposite; 
-    border-top-left-radius: 20%;
-    border-top-right-radius: 20%;
-
-    /* Mobile : no border radius */
-    @media (max-width: $query-mobile-threshold) {
-        border-top-left-radius: 0%;
-        border-top-right-radius: 0%;
-    }
 
     /* Desktop : 3 elements per row */
     .col3 {

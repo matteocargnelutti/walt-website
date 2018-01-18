@@ -50,16 +50,30 @@ body {
 // Header  
 //-----------------------------------------------------------------------------
 #docs header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 230px;
     background-color: $color-main;
     background: linear-gradient(to bottom left, $color-main, $color-main-sub);
     color: white;
     padding: 15px;
     overflow: hidden;
-    position: relative;
     vertical-align: middle;
+    z-index: 2;
+
+    /* Mobile : little menu bar */
+    @media (max-width: $query-mobile-threshold) {
+        width: 100%;
+        padding: 7px;
+    }
 
     h1 {
         font-size: 38px;
+        /* Mobile */
+        @media (max-width: $query-mobile-threshold) {
+            font-size: 24px;
+        }
         a {
             color: white;
             text-decoration: none;
@@ -69,6 +83,10 @@ body {
         }
         img {
             width: 85px;
+            /* Mobile */
+            @media (max-width: $query-mobile-threshold) {
+                width: 45px;
+            }
         }
     }
 }
@@ -77,36 +95,51 @@ body {
 // Nav  
 //-----------------------------------------------------------------------------
 #docs nav {
+    z-index: 1;
     position: fixed;
     top: 0px;
-    right: -220px;
-    transition: right 0.3s ease-in-out;
+    left: 0px;
+    transition: left 0.3s ease-in-out;
+
+    /* Mobile : docked menu*/
+    @media (max-width: $query-mobile-threshold) {
+        left: -231px;
+    }
 
     .switch {
-        display: inline-block;
-        position: absolute;
-        top: 13px;
-        right: 230px;
-        font-size: 32px;
-        line-height: 10px;
-        font-weight: 700;
-        background-color: $color-alt;
-        padding: 10px;
-        padding-bottom: 27px;
-        cursor: pointer;
-        border-top-left-radius: 7px;
-        border-bottom-left-radius: 7px;
+        display: none;
+        /* Mobile : docked menu*/
+        @media (max-width: $query-mobile-threshold) {
+            display: inline-block;
+            position: absolute;
+            top: 45vh;
+            left: 229px;
+            font-size: 32px;
+            line-height: 10px;
+            font-weight: 700;
+            background-color: $color-alt;
+            padding: 10px;
+            padding-bottom: 27px;
+            cursor: pointer;
+            border-top-right-radius: 7px;
+            border-bottom-right-radius: 7px;
+        }
     }
     
     ul {
         width: 230px;
         padding: 15px;
-        padding-top: 15px;
+        padding-top: 110px;
         padding-left: 30px;
         padding-right: 50px;
         background-color: $color-alt;
         height: 100vh;
         list-style-type: none;
+        /* Mobile */
+        @media (max-width: $query-mobile-threshold) {
+            padding-top: 60px;
+            padding-left: 15px;
+        }
         li {
             padding-bottom: 5px;
             padding-top: 5px;
@@ -116,17 +149,25 @@ body {
                 color: $color-text;
                 font-size: 22px;
                 transition: font-size 0.15s ease-in-out;
+                /* Mobile */
+                @media (max-width: $query-mobile-threshold) {
+                    font-size: 18px;
+                }
             }
             a.active, a:hover {
                 font-weight: 700;
                 font-size: 26px;
+                /* Mobile */
+                @media (max-width: $query-mobile-threshold) {
+                    font-size: 22px;
+                }
             }
         }
     }
 }
 
 #docs nav:hover, #docs nav.open {
-    right: 0px;
+    left: 0px;
 }
 
 //-----------------------------------------------------------------------------
@@ -141,32 +182,37 @@ body {
     /* Mobile : flexible width for content */
     @media (max-width: $query-mobile-threshold) {
         width: 90%;
+        padding-top: 40px;
     }
 
     > h2 {
+        display: inline-block;
         color: $color-text-opposite;
         background-color: $color-main-sub;
         font-weight: 700px;
         font-size: 46px;
         letter-spacing: -3px;
         padding: 10px;
+        padding-left: 20px;
+        padding-right: 25px;
 
+        /* Mobile */
         @media (max-width: $query-mobile-threshold) {
             font-size: 34px;
             letter-spacing: -1px;
+            text-align: center;
+            display: block;
         }
     }
 
     h3 {
-        background-color: $color-alt;
-        padding: 15px;
-        padding-left: 10px;
-        display: inline-block;
+        padding: 10px;
         font-weight: 700;
-        font-size: 26px;
+        font-size: 28px;
+        letter-spacing: -1px;
 
         @media (max-width: $query-mobile-threshold) {
-            font-size: 22px;
+            font-size: 24px;
         }
     }
 

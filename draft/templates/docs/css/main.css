@@ -25,15 +25,28 @@ body {
   background-attachment: fixed; }
 
 #docs header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 230px;
   background-color: #654ff0;
   background: linear-gradient(to bottom left, #654ff0, #4733bd);
   color: white;
   padding: 15px;
   overflow: hidden;
-  position: relative;
-  vertical-align: middle; }
+  vertical-align: middle;
+  z-index: 2;
+  /* Mobile : little menu bar */ }
+  @media (max-width: 780px) {
+    #docs header {
+      width: 100%;
+      padding: 7px; } }
   #docs header h1 {
-    font-size: 38px; }
+    font-size: 38px;
+    /* Mobile */ }
+    @media (max-width: 780px) {
+      #docs header h1 {
+        font-size: 24px; } }
     #docs header h1 a {
       color: white;
       text-decoration: none;
@@ -41,36 +54,54 @@ body {
       letter-spacing: -2px;
       text-shadow: 2px 1px 0px #4733bd; }
     #docs header h1 img {
-      width: 85px; }
+      width: 85px;
+      /* Mobile */ }
+      @media (max-width: 780px) {
+        #docs header h1 img {
+          width: 45px; } }
 
 #docs nav {
+  z-index: 1;
   position: fixed;
   top: 0px;
-  right: -220px;
-  transition: right 0.3s ease-in-out; }
+  left: 0px;
+  transition: left 0.3s ease-in-out;
+  /* Mobile : docked menu*/ }
+  @media (max-width: 780px) {
+    #docs nav {
+      left: -231px; } }
   #docs nav .switch {
-    display: inline-block;
-    position: absolute;
-    top: 13px;
-    right: 230px;
-    font-size: 32px;
-    line-height: 10px;
-    font-weight: 700;
-    background-color: #f1c232;
-    padding: 10px;
-    padding-bottom: 27px;
-    cursor: pointer;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px; }
+    display: none;
+    /* Mobile : docked menu*/ }
+    @media (max-width: 780px) {
+      #docs nav .switch {
+        display: inline-block;
+        position: absolute;
+        top: 45vh;
+        left: 229px;
+        font-size: 32px;
+        line-height: 10px;
+        font-weight: 700;
+        background-color: #f1c232;
+        padding: 10px;
+        padding-bottom: 27px;
+        cursor: pointer;
+        border-top-right-radius: 7px;
+        border-bottom-right-radius: 7px; } }
   #docs nav ul {
     width: 230px;
     padding: 15px;
-    padding-top: 15px;
+    padding-top: 110px;
     padding-left: 30px;
     padding-right: 50px;
     background-color: #f1c232;
     height: 100vh;
-    list-style-type: none; }
+    list-style-type: none;
+    /* Mobile */ }
+    @media (max-width: 780px) {
+      #docs nav ul {
+        padding-top: 60px;
+        padding-left: 15px; } }
     #docs nav ul li {
       padding-bottom: 5px;
       padding-top: 5px;
@@ -79,13 +110,21 @@ body {
         text-decoration: none;
         color: #1f1f1f;
         font-size: 22px;
-        transition: font-size 0.15s ease-in-out; }
+        transition: font-size 0.15s ease-in-out;
+        /* Mobile */ }
+        @media (max-width: 780px) {
+          #docs nav ul li a {
+            font-size: 18px; } }
       #docs nav ul li a.active, #docs nav ul li a:hover {
         font-weight: 700;
-        font-size: 26px; }
+        font-size: 26px;
+        /* Mobile */ }
+        @media (max-width: 780px) {
+          #docs nav ul li a.active, #docs nav ul li a:hover {
+            font-size: 22px; } }
 
 #docs nav:hover, #docs nav.open {
-  right: 0px; }
+  left: 0px; }
 
 #docs section.content {
   width: 780px;
@@ -95,28 +134,33 @@ body {
   /* Mobile : flexible width for content */ }
   @media (max-width: 780px) {
     #docs section.content {
-      width: 90%; } }
+      width: 90%;
+      padding-top: 40px; } }
   #docs section.content > h2 {
+    display: inline-block;
     color: white;
     background-color: #4733bd;
     font-weight: 700px;
     font-size: 46px;
     letter-spacing: -3px;
-    padding: 10px; }
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 25px;
+    /* Mobile */ }
     @media (max-width: 780px) {
       #docs section.content > h2 {
         font-size: 34px;
-        letter-spacing: -1px; } }
+        letter-spacing: -1px;
+        text-align: center;
+        display: block; } }
   #docs section.content h3 {
-    background-color: #f1c232;
-    padding: 15px;
-    padding-left: 10px;
-    display: inline-block;
+    padding: 10px;
     font-weight: 700;
-    font-size: 26px; }
+    font-size: 28px;
+    letter-spacing: -1px; }
     @media (max-width: 780px) {
       #docs section.content h3 {
-        font-size: 22px; } }
+        font-size: 24px; } }
   #docs section.content p {
     font-size: 22px;
     padding: 10px;
