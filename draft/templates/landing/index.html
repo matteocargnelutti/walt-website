@@ -7,16 +7,17 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+    <!-- Style -->
+    <link rel="stylesheet" href="css/main.css"/>
+
     <!-- Libs & fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"/>
+    <link href="libs/prism.css" rel="stylesheet"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <!-- Style -->
-    <link rel="stylesheet" href="css/main.css"/>
 
     <!-- META FB -->
     <meta property="og:image" content="img/facebook.jpg" />
@@ -31,6 +32,14 @@
 <body>
 
     <header class="ban">
+
+        <nav>
+            <a href="" title="">Demo</a>
+            <span>-</span>
+            <a href="" title="">Docs</a>
+            <span>-</span>
+            <a href="" title="">Github</a>
+        </nav>
 
         <figure>
             <img src="img/walt-hat-450x.png" alt="" class="hat"/>
@@ -91,6 +100,14 @@
                 <li>Fast compilation, integrates into webpack!</li>
             </ul>
 
+            <p><strong>Here is a simple WALT function:</strong></p>
+
+<pre><code class="language-javascript">export function fibonacci(n: i32): i32 {
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}</pre></code>
+
         </div>
 
     </section>
@@ -122,6 +139,9 @@
         </div>
 
     </section>
+
+    <!-- LIBS -->
+    <script type="text/javascript" src="libs/prism.js"></script>
 
 </body>
 

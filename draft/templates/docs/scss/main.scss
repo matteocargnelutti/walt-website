@@ -6,7 +6,7 @@ $color-main: #654ff0;
 $color-main-sub: #4733bd;
 $color-alt: #f1c232;
 $color-alt-sub: #f9c21a;
-$color-background: #f3f3f3;
+$color-background: #fcfcfc;
 $color-text: #1f1f1f;
 $color-text-sub: #424242;
 $color-text-opposite: white;
@@ -50,10 +50,6 @@ body {
 // Header  
 //-----------------------------------------------------------------------------
 #docs header {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 230px;
     background-color: $color-main;
     background: linear-gradient(to bottom left, $color-main, $color-main-sub);
     color: white;
@@ -70,9 +66,12 @@ body {
 
     h1 {
         font-size: 38px;
+        float: left;
+
         /* Mobile */
         @media (max-width: $query-mobile-threshold) {
             font-size: 24px;
+            float: none;
         }
         a {
             color: white;
@@ -89,85 +88,30 @@ body {
             }
         }
     }
-}
 
-//-----------------------------------------------------------------------------
-// Nav  
-//-----------------------------------------------------------------------------
-#docs nav {
-    z-index: 1;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    transition: left 0.3s ease-in-out;
+    nav {
+        float: right;
+        padding: 20px;
 
-    /* Mobile : docked menu*/
-    @media (max-width: $query-mobile-threshold) {
-        left: -231px;
-    }
-
-    .switch {
-        display: none;
-        /* Mobile : docked menu*/
         @media (max-width: $query-mobile-threshold) {
-            display: inline-block;
-            position: absolute;
-            top: 45vh;
-            left: 229px;
-            font-size: 32px;
-            line-height: 10px;
-            font-weight: 700;
-            background-color: $color-alt;
-            padding: 10px;
-            padding-bottom: 27px;
-            cursor: pointer;
-            border-top-right-radius: 7px;
-            border-bottom-right-radius: 7px;
+            float: none;
+            text-align: center;
         }
-    }
-    
-    ul {
-        width: 230px;
-        padding: 15px;
-        padding-top: 110px;
-        padding-left: 30px;
-        padding-right: 50px;
-        background-color: $color-alt;
-        height: 100vh;
-        list-style-type: none;
-        /* Mobile */
-        @media (max-width: $query-mobile-threshold) {
-            padding-top: 60px;
-            padding-left: 15px;
-        }
-        li {
-            padding-bottom: 5px;
-            padding-top: 5px;
-            border-bottom: 1px solid $color-text;
-            a {
-                text-decoration: none;
-                color: $color-text;
-                font-size: 22px;
-                transition: font-size 0.15s ease-in-out;
-                /* Mobile */
-                @media (max-width: $query-mobile-threshold) {
-                    font-size: 18px;
-                }
-            }
-            a.active, a:hover {
-                font-weight: 700;
-                font-size: 26px;
-                /* Mobile */
-                @media (max-width: $query-mobile-threshold) {
-                    font-size: 22px;
-                }
-            }
-        }
-    }
-}
 
-#docs nav:hover, #docs nav.open {
-    left: 0px;
+        a, span {
+            color: $color-text-opposite;
+            text-decoration: none;
+            text-transform: lowercase;
+            font-size: 22px;
+            letter-spacing: -1px;
+            padding-right: 10px;
+            transition: all ease-in-out 0.2s;
+            text-shadow: 1px 1px 0px $color-main-sub;
+        }
+        a:hover {
+            color: $color-alt;
+        }
+    }
 }
 
 //-----------------------------------------------------------------------------
@@ -181,26 +125,21 @@ body {
 
     /* Mobile : flexible width for content */
     @media (max-width: $query-mobile-threshold) {
-        width: 90%;
-        padding-top: 40px;
+        width: 95%;
+        padding-top: 10px;
+        margin-top: 0px;
     }
 
     > h2 {
-        display: inline-block;
-        color: $color-text-opposite;
-        background-color: $color-main-sub;
+        padding: 10px;
         font-weight: 700px;
         font-size: 46px;
-        letter-spacing: -3px;
-        padding: 10px;
-        padding-left: 20px;
-        padding-right: 25px;
+        color: $color-text;
 
         /* Mobile */
         @media (max-width: $query-mobile-threshold) {
             font-size: 34px;
             letter-spacing: -1px;
-            text-align: center;
             display: block;
         }
     }
@@ -210,6 +149,7 @@ body {
         font-weight: 700;
         font-size: 28px;
         letter-spacing: -1px;
+        color: $color-text-sub;
 
         @media (max-width: $query-mobile-threshold) {
             font-size: 24px;
@@ -228,11 +168,29 @@ body {
     }
 
     hr {
-        width: 100%;
+        width: 70%;
         margin: auto;
         border: none;
-        border-bottom: 2px solid $color-text;
+        border-bottom: 2px dashed $color-text-sub;
         margin-bottom: 2em;
         padding-top: 1em;
+    }
+
+    pre {
+        font-size: 22px !important;
+        margin-top: 0px !important;
+        padding-top: 0px !important;
+        background: none !important;
+        @media (max-width: $query-mobile-threshold) {
+            font-size: 12px !important;
+        }
+        code {
+            margin-top: 0px !important;
+            padding-top: 0px !important; /* That seems pretty important ... */
+            background: none !important;      
+        }
+        * {
+            background: none !important; 
+        }
     }
 }

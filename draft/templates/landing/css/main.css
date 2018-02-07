@@ -49,6 +49,18 @@ body {
         text-align: center; } }
     .ban p strong, .ban ul strong {
       font-weight: 700; }
+  .ban pre {
+    font-size: 22px !important;
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+    background: none !important; }
+    .ban pre code {
+      margin-top: 0px !important;
+      padding-top: 0px !important;
+      /* That seems pretty important ... */
+      background: none !important; }
+    .ban pre * {
+      background: none !important; }
   .ban ul {
     list-style-position: inside;
     list-style-type: square; }
@@ -76,17 +88,30 @@ header.ban {
   vertical-align: middle;
   background-color: #654ff0;
   background: linear-gradient(to bottom left, #654ff0, #4733bd);
-  /* Desktop : curtain animation */
-  /* Mobile : no curtain animation */
-  /*
-  @media (max-width: $query-mobile-threshold) {
-      height: 95vh;
-  }
-  */ }
+  /* Desktop : curtain animation */ }
   @media (min-width: 780px) {
     header.ban {
       animation: intro-init 1s ease forwards;
       animation-delay: 1s; } }
+  header.ban nav {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 20px;
+    border-bottom: 1px solid white; }
+    header.ban nav a, header.ban nav span {
+      color: white;
+      text-decoration: none;
+      text-transform: lowercase;
+      font-size: 22px;
+      letter-spacing: -1px;
+      padding-right: 10px;
+      transition: all ease-in-out 0.2s;
+      text-shadow: 1px 1px 0px #4733bd; }
+    header.ban nav a:hover {
+      color: #f1c232; }
   header.ban figure img {
     width: 400px;
     max-width: 70%;
@@ -129,7 +154,7 @@ header.ban {
   0% {
     height: 100vh; }
   100% {
-    height: 87vh; } }
+    height: 85vh; } }
 .ban#what {
   padding-top: 10px; }
   .ban#what #what-animation {

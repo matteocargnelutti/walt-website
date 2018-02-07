@@ -83,6 +83,21 @@ body {
         }
     }
 
+    pre {
+        font-size: 22px !important;
+        margin-top: 0px !important;
+        padding-top: 0px !important;
+        background: none !important;
+        code {
+            margin-top: 0px !important;
+            padding-top: 0px !important; /* That seems pretty important ... */
+            background: none !important;      
+        }
+        * {
+            background: none !important; 
+        }
+    }
+
     ul {
         list-style-position: inside;
         list-style-type: square;
@@ -127,12 +142,30 @@ header.ban {
         animation: intro-init 1s ease forwards;
         animation-delay: 1s;
     }
-    /* Mobile : no curtain animation */
-    /*
-    @media (max-width: $query-mobile-threshold) {
-        height: 95vh;
+
+    nav {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        padding: 20px;
+        border-bottom: 1px solid white;
+
+        a, span {
+            color: $color-text-opposite;
+            text-decoration: none;
+            text-transform: lowercase;
+            font-size: 22px;
+            letter-spacing: -1px;
+            padding-right: 10px;
+            transition: all ease-in-out 0.2s;
+            text-shadow: 1px 1px 0px $color-main-sub;
+        }
+        a:hover {
+            color: $color-alt;
+        }
     }
-    */
 
     figure {
         img {
@@ -189,7 +222,7 @@ header.ban {
         height: 100vh;
     };
     100% {
-        height: 87vh;
+        height: 85vh;
     };
 }
 
