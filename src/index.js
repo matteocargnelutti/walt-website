@@ -20,6 +20,18 @@ const config = require('./config');
 console.log("Building WALT's website");
 
 //-----------------------------------------------------------------------------
+// Step 0 : Create desination paths if they don't exist
+//-----------------------------------------------------------------------------
+for( path of Object.values(config.paths.build) ) {
+    try {
+        fs.mkdirSync(path);
+    }
+    catch(err) {
+        // It's ok :) !
+    }
+}
+
+//-----------------------------------------------------------------------------
 // Step 1 : Compiling SCSS to CSS
 //-----------------------------------------------------------------------------
 console.log('[1] Compiling SCSS.');
