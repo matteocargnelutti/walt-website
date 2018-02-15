@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Walt - JavaScript-like syntax for WebAssembly</title>
+    <meta name="description" content="Walt is an alternative syntax for the WebAssembly text format."/>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/landing/main.css"/>
+
+    <!-- Libs & fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"/>
+    <link href="libs/landing/prism.css" rel="stylesheet"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- META FB -->
+    <meta property="og:image" content="img/facebook.jpg" />
+	<meta property="og:title" content="Walt - JavaScript-like syntax for WebAssembly" />
+	<meta property="og:description" content="Walt is an alternative syntax for the WebAssembly text format." /> 
+
+    <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon" type="image/png"/>
+
+</head>
+
+<body>
+
+    <header class="ban">
+
+        <nav>
+            <a href="https://github.com/ballercat/walt" title="Live DEMO of Walt">Demo</a>
+            <span>-</span>
+            <a href="docs/index.html" title="Dive in WALT's documentation">Docs</a>
+            <span>-</span>
+            <a href="https://ballercat.github.io/walt/" title="WALT on GitHub">Github</a>
+        </nav>
+
+        <figure>
+            <img src="img/walt-hat-450x.png" alt="" class="hat"/>
+            <img src="img/walt-glasses-450x.png" alt="" class="glasses"/>
+        </figure>
+
+        <h1>
+            <strong>Walt</strong>
+            <span>JavaScript-like syntax for WebAssembly</span>
+        </h1>
+
+    </header>
+
+    <section class="ban" id="what">
+
+        <h2>What's walt ?</h2>
+
+        <div class="ban-content">
+
+            <p>
+            <strong>Walt is an alternative syntax for the WebAssembly text format : It's JavaScript with rules.</strong>
+            </p>
+
+            <p>
+            Walt files compile directly to WebAssembly binary format.
+            </p>
+
+            <div id="what-animation">
+            
+                <figure class="code">
+                    <img src="img/code-240x.png" alt=".walt code"/>
+                    <figcaption>.walt</figcaption>
+                </figure>
+
+                <span>&gt;</span>
+
+                <figure class="chemistry">
+                    <img src="img/lightning-240x.png" alt="" class="lightning"/>
+                    <img src="img/flask-240x.png" alt="" class="flask"/>
+                </figure>
+
+                <span>&gt;</span>
+
+                <figure class="code">
+                    <img src="img/code-240x.png" alt="WebAssembly"/>
+                    <figcaption>.wasm</figcaption>
+                </figure>
+
+            </div>
+
+            <hr/>
+
+            <h2>Walt does all the chemistry</h2>
+
+            <ul>
+                <li>No C/C++ or Rust required, just typed JavaScript.</li>
+                <li>NO LLVM/binary toolkits required, zero dependencies.</li>
+                <li>Fast compilation, integrates into webpack!</li>
+            </ul>
+
+            <p><strong>Here is a simple WALT function:</strong></p>
+
+<pre><code class="language-javascript">export function fibonacci(n: i32): i32 {
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}</pre></code>
+
+        </div>
+
+    </section>
+
+    <section class="ban" id="started">
+
+        <h2>Let's get started !</h2>
+
+        <div class="ban-content">
+
+            <div class="col3">
+                <p><strong>Try Walt in the browser</strong></p>
+                <p>See how it compiles to the WebAssembly text format.</p>
+                <a class="switch" href="https://github.com/ballercat/walt" title="">Live demo</a>
+            </div>
+
+            <div class="col3">
+                <p><strong>Dive in the documentation</strong></p>
+                <p>Walt is one npm command away from your machine.</p>
+                <a class="switch" href="docs/index.html" title="Dive in Walt's docs">Docs</a>
+            </div>
+
+            <div class="col3">
+                <p><strong>Come see us on GitHub</strong></p>
+                <p>Walt is an open-source project open to contributions.</p>
+                <a class="switch" href="https://ballercat.github.io/walt/" title="Walt on GitHub">GitHub</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LIBS -->
+    <script type="text/javascript" src="libs/landing/prism.js"></script>
+
+</body>
+
+</html>

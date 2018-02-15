@@ -25,9 +25,10 @@ exports.paths = {
 }
 
 //-----------------------------------------------------------------------------
-// Site infos
+// Globals
 //-----------------------------------------------------------------------------
-exports.site = {
-    'title': 'Walt',
-    'description': 'JavaScript-like syntax for WebAssembly'
+exports.globals = {
+    'site_url': '',
+    'walt_github_url': 'https://ballercat.github.io/walt/',
+    'walt_demo_url': 'https://github.com/ballercat/walt'
 }

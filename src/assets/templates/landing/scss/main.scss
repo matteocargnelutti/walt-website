@@ -1,6 +1,17 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    outline: 0px;
-    box-sizing: border-box;
-}
+//-----------------------------------------------------------------------------
+// Generic
+//-----------------------------------------------------------------------------
+@import 'assets/templates/landing/scss/generic/_variables.scss';
+@import 'assets/templates/landing/scss/generic/_animations.scss';
+@import 'assets/templates/landing/scss/generic/_reset.scss';
+
+@import 'assets/templates/landing/scss/generic/_layout.scss';
+
+//-----------------------------------------------------------------------------
+// Specific
+//-----------------------------------------------------------------------------
+@import 'assets/templates/landing/scss/specific/_intro.scss';
+@import 'assets/templates/landing/scss/specific/_what.scss';
+@import 'assets/templates/landing/scss/specific/_started.scss';
+
+/* Note : complete paths used for node-sass */

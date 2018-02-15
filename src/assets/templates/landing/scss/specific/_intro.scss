@@ -1,0 +1,99 @@
+//-----------------------------------------------------------------------------
+// Intro
+//-----------------------------------------------------------------------------
+header.ban {
+    width: 9999px;
+    height: 100vh;
+    display: table-cell;
+    vertical-align: middle;
+    background-color: $color-main;
+    background: linear-gradient(to bottom left, $color-main, $color-main-sub);
+
+    /* Desktop : curtain animation */
+    @media (min-width: $query-mobile-threshold) {
+        animation: intro-init 1s ease forwards;
+        animation-delay: 1s;
+    }
+
+    nav {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        padding: 20px;
+        border-bottom: 1px solid white;
+
+        a, span {
+            color: $color-text-opposite;
+            text-decoration: none;
+            text-transform: lowercase;
+            font-size: 22px;
+            letter-spacing: -1px;
+            padding-right: 10px;
+            transition: all ease-in-out 0.2s;
+            text-shadow: 1px 1px 0px $color-main-sub;
+        }
+        a:hover {
+            color: $color-alt;
+        }
+    }
+
+    figure {
+        img {
+            width: 400px;
+            max-width: 70%;
+            display: block;
+            margin: auto;
+            position: relative;
+        }
+        img.glasses {
+            animation: bounce-5px 1s ease infinite;
+        }
+        img.hat {
+            animation: bounce-3px 1s ease infinite;
+        }
+    }
+
+    h1 {
+        color: $color-text-opposite;
+        strong {
+            font-weight: 700;
+            font-size: 108px;
+            letter-spacing: -4px;
+            display: block;
+            text-align: center;
+            text-shadow: 4px 4px 0px $color-main-sub;
+
+            /* Mobile */
+            @media (max-width: $query-mobile-threshold) {
+                font-size: 70px;
+                letter-spacing: -2px;
+            }
+        }
+        span {
+            font-size: 34px;
+            letter-spacing: -2px;
+            display: block;
+            text-align: center;
+            font-weight: 400;
+            text-shadow: 2px 1px 0px $color-main-sub;
+
+            /* Mobile */
+            @media (max-width: $query-mobile-threshold) {
+                font-size: 22px;
+                letter-spacing: 0px;
+            }
+        }
+    }
+}
+
+/* Header animation : change in height + animated border radius (curtain effect) */
+@keyframes intro-init {
+    0% { 
+        height: 100vh;
+    };
+    100% {
+        height: 87vh;
+    };
+}
