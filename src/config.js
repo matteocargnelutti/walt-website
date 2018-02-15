@@ -15,7 +15,6 @@ exports.paths = {
         'contents': './assets/contents/', // Markdown contents
         'img': './assets/img/',
         'templates': './assets/templates/',
-        'scss': './assets/scss/'
     },
     build: {
         'root': '../',

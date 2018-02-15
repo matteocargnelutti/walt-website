@@ -20,9 +20,9 @@ const config = require('./config');
 console.log("Building WALT's website");
 
 //-----------------------------------------------------------------------------
-// Step 0 : Create desination paths if they don't exist
+// Step 0 : Create base desination paths if they don't exist
 //-----------------------------------------------------------------------------
-for( path of Object.values(config.paths.build) ) {
+for( let path of Object.values(config.paths.build) ) {
     try {
         fs.mkdirSync(path);
     }
@@ -36,21 +36,40 @@ for( path of Object.values(config.paths.build) ) {
 //-----------------------------------------------------------------------------
 console.log('[1] Compiling SCSS.');
 
-let scss_input = fs.readFileSync(
-    `${config.paths.sources.scss}main.scss`, 
-    'utf8'
-);
+// List templates dirs
+let templates = fs.readdirSync(config.paths.sources.templates);
 
-let scss_output = sass.renderSync({
-  data: scss_input,
-  outputStyle: 'compressed'
-});
+for( let template of templates ) {
 
-fs.writeFileSync(
-    `${config.paths.build.css}main.css`, 
-    scss_output,
-    'utf8'
-);
+    let input_filepath = `${config.paths.sources.templates}${template}/scss/`;
+    let ouput_filepath = `${config.paths.build.css}${template}/`;
+    
+    // Create path if needed
+    try {
+        fs.mkdirSync(`${ouput_filepath}`);
+    }
+    catch(err) {
+        // It's ok :) !
+    }
+
+    // Read template's main scss
+    let scss_input = fs.readFileSync(
+        `${input_filepath}main.scss`, 
+        'utf8'
+    );
+
+    let scss_output = sass.renderSync({
+        data: scss_input,
+        outputStyle: 'compressed'
+    });
+
+    fs.writeFileSync(
+        `${ouput_filepath}main.css`, 
+        scss_output,
+        'utf8'
+    );
+
+}
 
 console.log('[1] Ok !');
 
@@ -61,7 +80,7 @@ console.log('[2] Copying image files.');
 
 let img_files = fs.readdirSync(config.paths.sources.img);
 
-for( file of img_files ) {
+for( let file of img_files ) {
     console.log(`[2] Copying : ${file}`);
     fs.copyFileSync(
         config.paths.sources.img + file,
