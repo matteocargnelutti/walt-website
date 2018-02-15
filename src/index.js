@@ -206,21 +206,40 @@ let docs = [];
 console.log('-- Step 4: Ok --');
 
 //-----------------------------------------------------------------------------
-// Step 5 : Building DOC INDEX page
-//-----------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------
-// Step 6 : Building DOC INDIVIDUAL pages
+// Step 5 : Preparing DOC INDEX page content
 //-----------------------------------------------------------------------------
 (() => {
 
-    console.log(`[6] Building DOCS individual pages.`);
+    console.log(`[5] Preparing DOCS index page content.`);
 
-    // Prepare assembled template
-    let template = '';
-    template += fs.readFileSync(`${config.paths.sources.templates}docs/header.html`, 'utf8');
-    template += fs.readFileSync(`${config.paths.sources.templates}docs/page.html`, 'utf8');
-    template += fs.readFileSync(`${config.paths.sources.templates}docs/footer.html`, 'utf8');
+    // Building the docs index
+    let content = `<h2>Index</h2>`
+    content += `<ul>`;
+    for( doc of docs ) {
+        content += `<li>`
+        content += `<a href="/docs/${doc.filename}.html" title="${doc.title}">${doc.title}</a>`
+        content += `</li>`
+    }
+    content += `</ul>`
+
+    docs.unshift({
+        title: 'Documentation',
+        filename: 'index',
+        content: content
+    });
+
+    console.log('-- Step 5: Ok --');
+
+})();
+
+//-----------------------------------------------------------------------------
+// Step 6 : Building DOC pages
+//-----------------------------------------------------------------------------
+(() => {
+
+    console.log(`[6] Building DOCS pages.`);
+
+    let template = fs.readFileSync(`${config.paths.sources.templates}docs/index.html`, 'utf8');
 
     for( doc of docs ) {
 

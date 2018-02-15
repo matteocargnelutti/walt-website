@@ -30,6 +30,6 @@ exports.paths = {
 //-----------------------------------------------------------------------------
 exports.globals = {
     'site_url': '',
-    'walt_github_url': 'https://ballercat.github.io/walt/',
-    'walt_demo_url': 'https://github.com/ballercat/walt'
+    'walt_demo_url': 'https://ballercat.github.io/walt/',
+    'walt_github_url': 'https://github.com/ballercat/walt'
 }

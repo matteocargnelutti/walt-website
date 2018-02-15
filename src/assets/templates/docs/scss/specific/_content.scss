@@ -51,6 +51,28 @@
         }
     }
 
+    ul {
+        font-size: 22px;
+        padding: 10px;
+        color: $color-text;
+        margin-bottom: 1em;
+        list-style-position: inside;
+        list-style-type: square;
+
+        @media (max-width: $query-mobile-threshold) {
+            font-size: 18px;
+        }
+    }
+
+    a {
+        color: $color-text;
+        text-decoration: none;
+        transition: color 0.25s ease-in-out;
+    }
+    a:hover {
+        color: $color-alt;
+    }
+
     hr {
         width: 70%;
         margin: auto;
