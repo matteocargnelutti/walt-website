@@ -243,7 +243,7 @@ console.log('-- Step 4: Ok --');
 
     for( doc of docs ) {
 
-        console.log(`[6] Building ${doc.filename}.html`);
+        console.log(`[6] - Building docs/${doc.filename}.html`);
 
         // Paths
         let template_dest = `${config.paths.build.root}docs/${doc.filename}.html`;
