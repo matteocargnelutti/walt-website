@@ -217,7 +217,7 @@ console.log('-- Step 4: Ok --');
     content += `<ul>`;
     for( doc of docs ) {
         content += `<li>`
-        content += `<a href="/docs/${doc.filename}.html" title="${doc.title}">${doc.title}</a>`
+        content += `<a href="../docs/${doc.filename}.html" title="${doc.title}">${doc.title}</a>`
         content += `</li>`
     }
     content += `</ul>`
