@@ -2,7 +2,7 @@
  * WALT's Website Generator
  * Website generator for @ballercat's WALT (https://github.com/ballercat/walt)
  *
- * Matteo Cargnelutti - http://github.com/matteocargnelutti
+ * Matteo Cargnelutti - https://github.com/matteocargnelutti
  * config.js - Website config info
 */
 
@@ -14,12 +14,13 @@ exports.paths = {
         'root': './assets/',
         'contents': './assets/contents/', // Markdown contents
         'img': './assets/img/',
-        'templates': './assets/templates/',
+        'templates': './assets/templates/'
     },
     build: {
         'root': '../',
         'css': '../css/',
-        'img': '../img/'
+        'img': '../img/',
+        'libs': '../libs/'
     }
 }
 

@@ -2,8 +2,9 @@
  * WALT's Website Generator
  * Website generator for @ballercat's WALT (https://github.com/ballercat/walt)
  *
- * Matteo Cargnelutti - http://github.com/matteocargnelutti
+ * Matteo Cargnelutti - https://github.com/matteocargnelutti
  * index.js - Entry point
+ * /!\ This is purposedly a very simple single filer
 */
 
 //-----------------------------------------------------------------------------
@@ -27,34 +28,42 @@ for( let path of Object.values(config.paths.build) ) {
         fs.mkdirSync(path);
     }
     catch(err) {
-        // It's ok :) !
+        // Let's assume the directory was already present
     }
 }
 
 //-----------------------------------------------------------------------------
-// Step 1 : Compiling SCSS to CSS
+// Step 1 : Writing CSS and Libs
 //-----------------------------------------------------------------------------
-console.log('[1] Compiling SCSS.');
+console.log('[1] Writing CSS and libs.');
 
 // List templates dirs
 let templates = fs.readdirSync(config.paths.sources.templates);
 
+// For each template
 for( let template of templates ) {
 
-    let input_filepath = `${config.paths.sources.templates}${template}/scss/`;
-    let ouput_filepath = `${config.paths.build.css}${template}/`;
+    console.log(`[1] Entering template "${template}"`);
+
+    // Paths
+    let input_scss_filepath = `${config.paths.sources.templates}${template}/scss/`; // scss input : /assets/templates/{template}/scss/main.scss
+    let ouput_css_filepath = `${config.paths.build.css}${template}/`; // css output : /css/{template}/main.css
     
-    // Create path if needed
+    let input_libs_filepath = `${config.paths.sources.templates}${template}/libs/`; // libs input : /assets/templates/{template}/libs
+    let ouput_libs_filepath = `${config.paths.build.libs}${template}/`; // libs output : /libs/{template}/
+
+    // Create paths if needed
     try {
-        fs.mkdirSync(`${ouput_filepath}`);
+        fs.mkdirSync(`${ouput_css_filepath}`);
+        fs.mkdirSync(`${ouput_libs_filepath}`);
     }
     catch(err) {
-        // It's ok :) !
+        // Let's assume the directory was already present
     }
 
-    // Read template's main scss
+    // Read / compile / write SCSS to CSS
     let scss_input = fs.readFileSync(
-        `${input_filepath}main.scss`, 
+        `${input_scss_filepath}main.scss`, 
         'utf8'
     );
 
@@ -64,10 +73,21 @@ for( let template of templates ) {
     });
 
     fs.writeFileSync(
-        `${ouput_filepath}main.css`, 
+        `${ouput_css_filepath}main.css`, 
         scss_output,
         'utf8'
     );
+
+    console.log(`[1] SCSS converted and written for template "${template}"`);
+
+    // Copy template libs
+    for( let file of fs.readdirSync(input_libs_filepath) ) {
+        console.log(`[1] Copying lib ${file} for template "${template}"`);
+        fs.copyFileSync(
+            input_libs_filepath + file,
+            ouput_libs_filepath + file
+        );        
+    }
 
 }
 
