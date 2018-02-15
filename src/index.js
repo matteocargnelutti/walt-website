@@ -169,9 +169,10 @@ console.log('-- Step 3: Ok --');
 //-----------------------------------------------------------------------------
 let docs = [];
 
-console.log(`[4] Loading, indexing and parsing DOC contents.`);
-
 (() => {
+
+    console.log(`[4] Loading, indexing and parsing DOC contents.`);
+
     let docs_path = `${config.paths.sources.contents}docs/`;
 
     // For each found doc : load it, parse it and put it in memory
@@ -184,7 +185,7 @@ console.log(`[4] Loading, indexing and parsing DOC contents.`);
         let title = doc;
 
         try {
-            title = /^\#{1}([\w\d\s.]+)/gm.exec(content)[1].trim();
+            title = /^\#\#{1}([\w\d\s.]+)/gm.exec(content)[1].trim();
         }
         catch(err) {
             title = doc.replace('.md', '');
@@ -213,6 +214,8 @@ console.log('-- Step 4: Ok --');
 //-----------------------------------------------------------------------------
 (() => {
 
+    console.log(`[6] Building DOCS individual pages.`);
+
     // Prepare assembled template
     let template = '';
     template += fs.readFileSync(`${config.paths.sources.templates}docs/header.html`, 'utf8');
@@ -220,6 +223,8 @@ console.log('-- Step 4: Ok --');
     template += fs.readFileSync(`${config.paths.sources.templates}docs/footer.html`, 'utf8');
 
     for( doc of docs ) {
+
+        console.log(`[6] Building ${doc.filename}.html`);
 
         // Paths
         let template_dest = `${config.paths.build.root}docs/${doc.filename}.html`;
@@ -244,3 +249,7 @@ console.log('-- Step 4: Ok --');
     }
 
 })();
+
+console.log('-- Step 6: Ok --');
+
+console.log('-- Done. --');

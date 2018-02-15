@@ -1,0 +1,75 @@
+//-----------------------------------------------------------------------------
+// Content  
+//-----------------------------------------------------------------------------
+#docs section.content {
+    width: 780px;
+    margin: auto;
+    margin-top: 2em;
+    padding: 20px;
+
+    /* Mobile : flexible width for content */
+    @media (max-width: $query-mobile-threshold) {
+        width: 95%;
+        padding-top: 10px;
+        margin-top: 0px;
+    }
+
+    > h2 {
+        padding: 10px;
+        font-weight: 700px;
+        font-size: 46px;
+        color: $color-text;
+
+        /* Mobile */
+        @media (max-width: $query-mobile-threshold) {
+            font-size: 34px;
+            letter-spacing: -1px;
+            display: block;
+        }
+    }
+
+    h3 {
+        padding: 10px;
+        font-weight: 700;
+        font-size: 28px;
+        letter-spacing: -1px;
+        color: $color-text-sub;
+
+        @media (max-width: $query-mobile-threshold) {
+            font-size: 24px;
+        }
+    }
+
+    p {
+        font-size: 22px;
+        padding: 10px;
+        color: $color-text;
+        margin-bottom: 1em;
+
+        @media (max-width: $query-mobile-threshold) {
+            font-size: 18px;
+        }
+    }
+
+    hr {
+        width: 70%;
+        margin: auto;
+        border: none;
+        border-bottom: 2px dashed $color-text-sub;
+        margin-bottom: 2em;
+        padding-top: 1em;
+    }
+
+    pre {
+        font-size: 20px !important;
+        margin-top: 0px !important;
+        /*padding-top: 0px !important;*/
+        @media (max-width: $query-mobile-threshold) {
+            font-size: 12px !important;
+        }
+        code {
+            margin-top: 0px !important;
+            padding-top: 0px !important; /* That seems pretty important ... */     
+        }
+    }
+}

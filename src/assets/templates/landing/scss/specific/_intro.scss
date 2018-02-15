@@ -18,11 +18,11 @@ header.ban {
     nav {
         width: 100%;
         text-align: center;
+        padding: 20px;
+        border-bottom: 1px solid white;
         position: absolute;
         top: 0px;
         left: 0px;
-        padding: 20px;
-        border-bottom: 1px solid white;
 
         a, span {
             color: $color-text-opposite;
@@ -40,12 +40,14 @@ header.ban {
     }
 
     figure {
+        padding-top: 5vh;
         img {
-            width: 400px;
+            width: 38vh;
             max-width: 70%;
             display: block;
             margin: auto;
             position: relative;
+
         }
         img.glasses {
             animation: bounce-5px 1s ease infinite;
@@ -59,8 +61,8 @@ header.ban {
         color: $color-text-opposite;
         strong {
             font-weight: 700;
-            font-size: 108px;
-            letter-spacing: -4px;
+            font-size: 17vh;
+            letter-spacing: -1vh;
             display: block;
             text-align: center;
             text-shadow: 4px 4px 0px $color-main-sub;
@@ -72,8 +74,8 @@ header.ban {
             }
         }
         span {
-            font-size: 34px;
-            letter-spacing: -2px;
+            font-size: 4vh;
+            letter-spacing: -0.2vh;
             display: block;
             text-align: center;
             font-weight: 400;

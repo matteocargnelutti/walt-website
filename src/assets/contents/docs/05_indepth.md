@@ -1,4 +1,4 @@
-## Setup
+## In depth
 
 ### Part title
 

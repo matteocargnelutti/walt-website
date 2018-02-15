@@ -1,0 +1,62 @@
+//-----------------------------------------------------------------------------
+// Header  
+//-----------------------------------------------------------------------------
+#docs header {
+    padding: 15px;
+    overflow: hidden;
+    vertical-align: middle;
+    z-index: 2;
+
+    /* Mobile : little menu bar */
+    @media (max-width: $query-mobile-threshold) {
+        width: 100%;
+        padding: 7px;
+    }
+
+    h1 {
+        font-size: 38px;
+        float: left;
+
+        /* Mobile */
+        @media (max-width: $query-mobile-threshold) {
+            font-size: 24px;
+            float: none;
+        }
+        a {
+            color: $color-text;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+        img {
+            width: 85px;
+            /* Mobile */
+            @media (max-width: $query-mobile-threshold) {
+                width: 45px;
+            }
+        }
+    }
+
+    nav {
+        float: right;
+        padding: 20px;
+
+        @media (max-width: $query-mobile-threshold) {
+            float: none;
+            text-align: center;
+        }
+
+        a, span {
+            color: $color-text;
+            text-decoration: none;
+            text-transform: lowercase;
+            font-size: 22px;
+            letter-spacing: -1px;
+            padding-right: 10px;
+            transition: all ease-in-out 0.2s;
+        }
+        a:hover {
+            color: $color-alt;
+        }
+    }
+}

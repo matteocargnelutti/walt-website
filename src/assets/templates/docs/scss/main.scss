@@ -1,6 +1,15 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    outline: 0px;
-    box-sizing: border-box;
-}
+//-----------------------------------------------------------------------------
+// Generic
+//-----------------------------------------------------------------------------
+@import 'assets/templates/docs/scss/generic/_variables.scss';
+@import 'assets/templates/docs/scss/generic/_animations.scss';
+@import 'assets/templates/docs/scss/generic/_reset.scss';
+
+
+//-----------------------------------------------------------------------------
+// Specific
+//-----------------------------------------------------------------------------
+@import 'assets/templates/docs/scss/specific/_header.scss';
+@import 'assets/templates/docs/scss/specific/_content.scss';
+
+/* Note : complete paths used for node-sass */

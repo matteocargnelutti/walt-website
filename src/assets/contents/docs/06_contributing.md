@@ -1,4 +1,4 @@
-## Setup
+## Contributing
 
 ### Part title
 
