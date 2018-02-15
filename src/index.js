@@ -4,7 +4,7 @@
  *
  * Matteo Cargnelutti - https://github.com/matteocargnelutti
  * index.js - Entry point
- * /!\ This is purposedly a very simple single filer
+ * /!\ This is PURPOSELY a very simple single filer, in order to allow anyone to quickly modify it
 */
 
 //-----------------------------------------------------------------------------
@@ -13,12 +13,23 @@
 const fs = require('fs');
 
 const mustache = require('mustache');
-const markdown = require('markdown');
+const marked = require('marked');
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false
+});
+
 const sass = require('node-sass');
 
 const config = require('./config');
 
-console.log("Building WALT's website");
+console.log("-- Building WALT's website --");
 
 //-----------------------------------------------------------------------------
 // Step 0 : Create base desination paths if they don't exist
@@ -83,13 +94,13 @@ for( let template of fs.readdirSync(config.paths.sources.templates) ) {
         'utf8'
     );
 
-    console.log(`[1] SCSS converted and written for template "${template}"`);
+    console.log(`[1] - SCSS converted and written for template "${template}"`);
 
     //
     // Copy template's associated libs
     //
     for( let file of fs.readdirSync(input_libs_filepath) ) {
-        console.log(`[1] Copying lib file ${file} for template "${template}"`);
+        console.log(`[1] - Copying lib file ${file} for template "${template}"`);
         fs.copyFileSync(
             input_libs_filepath + file,
             ouput_libs_filepath + file
@@ -98,7 +109,7 @@ for( let template of fs.readdirSync(config.paths.sources.templates) ) {
 
 }
 
-console.log('[1] Ok !');
+console.log('-- Step 1: Ok --');
 
 //-----------------------------------------------------------------------------
 // Step 2 : Copying images
@@ -107,14 +118,14 @@ console.log('[2] Copying image files.');
 
 // For each file of assets/img
 for( let file of fs.readdirSync(config.paths.sources.img) ) {
-    console.log(`[2] Copying : ${file}`);
+    console.log(`[2] - Copying : ${file}`);
     fs.copyFileSync(
         config.paths.sources.img + file,
         config.paths.build.img + file
     );
 }
 
-console.log('[2] Ok !');
+console.log('-- Step 2: Ok --');
 
 //-----------------------------------------------------------------------------
 // Step 3 : Building the LANDING page
@@ -135,9 +146,9 @@ console.log('[2] Ok !');
 
     // Data to merge-in
     let data = {
-        css_dir: `${config.paths.build.css}landing/`.replace('../', ''), // replace = path perspective change from /src to /
-        img_dir: config.paths.build.img.replace('../', ''), // same remark
-        libs_dir: `${config.paths.build.libs}landing/`.replace('../', ''), // same remark
+        css_dir: `${config.paths.build.css}landing/`.replace('../', ''), // Target : /css/landing
+        img_dir: config.paths.build.img.replace('../', ''), // Target : /img
+        libs_dir: `${config.paths.build.libs}landing/`.replace('../', ''), // Target : /libs/landing
         walt_demo_url: config.globals.walt_demo_url,
         walt_github_url: config.globals.walt_github_url,
     }
@@ -149,9 +160,9 @@ console.log('[2] Ok !');
         'utf8'
     );
 
-    console.log('[3] Ok !');
-
 })(); //  Self-executing function used for block-scope purposes
+
+console.log('-- Step 3: Ok --');
 
 //-----------------------------------------------------------------------------
 // Step 4 : Loading, indexing and parsing DOCS markdown contents
@@ -179,21 +190,19 @@ console.log(`[4] Loading, indexing and parsing DOC contents.`);
             title = doc.replace('.md', '');
         }
 
-        // Parse markdown
-        content = markdown.parse(content);
-
         // Index
         docs.push({
             title: title,
-            content: content
+            filename: doc.replace('.md', ''),
+            content: marked(content)
         });
 
-        console.log(`[4] "${title}" (${doc}) loaded, parsed and indexed.`)
+        console.log(`[4] - DOC ${doc} loaded, parsed and indexed.`)
     }
 
 })();
 
-console.log(`[4] Ok !`);
+console.log('-- Step 4: Ok --');
 
 //-----------------------------------------------------------------------------
 // Step 5 : Building DOC INDEX page
@@ -202,3 +211,36 @@ console.log(`[4] Ok !`);
 //-----------------------------------------------------------------------------
 // Step 6 : Building DOC INDIVIDUAL pages
 //-----------------------------------------------------------------------------
+(() => {
+
+    // Prepare assembled template
+    let template = '';
+    template += fs.readFileSync(`${config.paths.sources.templates}docs/header.html`, 'utf8');
+    template += fs.readFileSync(`${config.paths.sources.templates}docs/page.html`, 'utf8');
+    template += fs.readFileSync(`${config.paths.sources.templates}docs/footer.html`, 'utf8');
+
+    for( doc of docs ) {
+
+        // Paths
+        let template_dest = `${config.paths.build.root}docs/${doc.filename}.html`;
+
+        // Data to merge-in
+        let data = {
+            css_dir: `${config.paths.build.css}docs/`, // Target : /css/docs
+            img_dir: config.paths.build.img, // Target : /img
+            libs_dir: `${config.paths.build.libs}docs/`, // Target : /libs/docs 
+            walt_demo_url: config.globals.walt_demo_url,
+            walt_github_url: config.globals.walt_github_url,
+            title: doc.title,
+            content: doc.content
+        }
+
+        // Render and write file
+        fs.writeFileSync(
+            template_dest, 
+            mustache.render(template, data),
+            'utf8'
+        );
+    }
+
+})();

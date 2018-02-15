@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Walt - Docs : {{title}}</title>
+    <meta name="description" content="{{title}} in Walt's documentation"/>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{{{css_dir}}}main.css"/>
+
+    <!-- Libs & fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"/>
+    <link href="{{{libs_dir}}}prism.css" rel="stylesheet"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- META FB -->
+    <meta property="og:image" content="{{{img_dir}}}facebook.jpg" />
+	<meta property="og:title" content="Walt Docs : {{title}}" />
+	<meta property="og:description" content="Documentation for Walt, an alternative syntax for the WebAssembly text format." /> 
+
+    <!-- Favicon -->
+    <link href="{{{img_dir}}}favicon.png" rel="icon" type="image/png"/>
+
+</head>
+
+<body id="docs">
+
+    <header>
+        <h1>
+            <a href="/" title="Walt - Javascript-like syntax for WebAssembly">
+                <img src="{{{img_dir}}}walt-black-170x.png" alt="JavaScript-like syntax for WebAssembly"/>
+            </a>
+            <a href="/docs/index.html" title="Walt Docs">
+                Docs
+            </a>
+        </h1>
+
+        <nav>
+            <a href="{{{walt_demo_url}}}" title="Live DEMO of Walt">Demo</a>
+            <span>-</span>
+            <a href="/docs/index.html" title="Dive in WALT's documentation">Docs</a>
+            <span>-</span>
+            <a href="{{{walt_github_url}}}" title="WALT on GitHub">Github</a>
+        </nav>
+
+    </header>

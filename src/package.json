@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/matteocargnelutti/walt-website#readme",
   "dependencies": {
-    "markdown": "^0.5.0",
+    "marked": "^0.3.12",
     "mustache": "^2.3.0",
     "node-sass": "^4.7.2"
   }
