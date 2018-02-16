@@ -3,8 +3,9 @@
  * Website generator for @ballercat's WALT (https://github.com/ballercat/walt)
  *
  * Matteo Cargnelutti - https://github.com/matteocargnelutti
- * index.js - Entry point
+ * index.js - Entry point, site generator
  * /!\ This is PURPOSELY a very simple single filer, in order to allow anyone to quickly modify it
+ * 
 */
 
 //-----------------------------------------------------------------------------
