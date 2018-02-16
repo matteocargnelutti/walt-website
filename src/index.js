@@ -14,6 +14,7 @@
 const fs = require('fs');
 
 const mustache = require('mustache');
+const sass = require('node-sass');
 const marked = require('marked');
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -25,8 +26,6 @@ marked.setOptions({
   smartLists: true,
   smartypants: false
 });
-
-const sass = require('node-sass');
 
 const config = require('./config');
 
@@ -231,7 +230,7 @@ console.log('-- Step 4: Ok --');
 
     console.log('-- Step 5: Ok --');
 
-})();
+})(); //  Self-executing function used for block-scope purposes
 
 //-----------------------------------------------------------------------------
 // Step 6 : Building DOC pages
@@ -268,7 +267,7 @@ console.log('-- Step 4: Ok --');
         );
     }
 
-})();
+})(); //  Self-executing function used for block-scope purposes
 
 console.log('-- Step 6: Ok --');
 
