@@ -1,5 +1,5 @@
 # @ballercat WALT's Website
-This temporary repository contains the sources, the builder and the build for the upcoming official website for @ballercat's Walt : https://github.com/ballercat/walt 
+This temporary repository contains the sources, the builder and the build for the upcoming official website for @ballercat 's **Walt project** : https://github.com/ballercat/walt 
 
 This website is meant to be hosted on GitHub pages.
 
@@ -25,16 +25,16 @@ File/dir | Use
 `/src/index.js` | The generator.
 `/src/package.json`| NPM dependencies file
 `/src/assets/` | Contains all the ressources used to generate the website
-`/src/assets/contents/docs/` | Contains MARKDOWN files used to build the docs
-`/src/assets/img/` | All the website images
-`/src/assets/templates/` | Website templates. One template per dir
+`/src/assets/contents/docs/` | Contains Markdown files used to build the docs
+`/src/assets/img/` | Common directory for all the website's images
+`/src/assets/templates/` | Website templates. One template per dir. Each template has its own libs and scss directory.
 
 ## How to build the website
 - **Setup:** With **NodeJS** installed, go to `/src` and run `npm install` to install all the required dependencies.
 - **Build:** From `/` run `./build.sh` or from `/src/` run `node index.js`
 
 ## About the generator
-This website uses a very simple one-file generator : the idea was to avoid having to rely on too many dependencies for such a simple task, and to allow anyone that knows JavaScript to contribute to the website without having to learn any new framework or library.
+**This website uses a very simple one-file generator:** the idea was to avoid having to rely on too many dependencies for such a simple task, and to allow anyone that knows JavaScript to contribute to the website without having to learn any new framework or library.
 
 The script is purposely simple, synchronous and in a single file.
 
@@ -43,7 +43,7 @@ Simply add or edit a `.md` file in `/src/assets/contents/docs` and build the sit
 - Each file should be in this format : 0X_name.md 
 - The files shouldn't contain first-level headings
 - The first heading found in the fild is used as the page's title
-- See 01_about.md for a sample
+- See **01_about.md**
 
 ## How to edit the landing page
 Directly edit `/src/assets/landing/index.html`.
